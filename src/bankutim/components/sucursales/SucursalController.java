@@ -1,15 +1,14 @@
 package bankutim.components.sucursales;
 
+import bankutim.datasource.EjecutivosDataSource;
 import bankutim.datasource.SucursalesDataSource;
+import bankutim.model.Ejecutivo;
 import bankutim.model.Sucursal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -21,6 +20,9 @@ import java.util.ResourceBundle;
 public class SucursalController implements Initializable {
     @FXML
     TextField numeroSucursalTxt, nombreTxt, domicilioTxt;
+    @FXML
+    ComboBox estadoCmb, gerenteCmb;
+
     @FXML
     Label mensajeLbl;
     @FXML
@@ -39,7 +41,12 @@ public class SucursalController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.nombreTxt.requestFocus();
+
+        //fill combobox with string items
+        this.estadoCmb.getItems().addAll("Aguascalientes","Baja California","Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Ciudad de México","...","Zacatecas");
+
+        //fill combobox with objects and set caption
+        this.gerenteCmb.getItems().addAll(EjecutivosDataSource.Ejecutivos()); //Custom object with toString method for displayData
 
         this.aceptarBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -107,6 +114,9 @@ public class SucursalController implements Initializable {
 
         this.sucursal.setNombre(this.nombreTxt.getText());
         this.sucursal.setDomicilio(this.domicilioTxt.getText());
+
+        //test for selected object at combobox
+        System.out.println("Ejecutivo seleccionado" + ((Ejecutivo) gerenteCmb.getSelectionModel().getSelectedItem()).toString() );
 
         return  true;
     }

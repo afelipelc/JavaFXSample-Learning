@@ -32,7 +32,7 @@ public final class SucursalesDataSource {
     public static Sucursal addSucursal(Sucursal item){
         //check for sucursal id to set
         if(item.getId() == 0) {
-            System.out.println("Current set ID =>" + SucursalesDataSource.Sucursales().size() + 1);
+
             item.setId(SucursalesDataSource.Sucursales().size() + 1);
             DataSource.Sucursales.add(item);
         }
