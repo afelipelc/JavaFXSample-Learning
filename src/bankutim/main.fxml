@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane stylesheets="@assets/css/GeneralCss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankutim.MainController">
+   <center>
+      <Pane fx:id="contenedorPrincipal" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="1.0" />
+         </BorderPane.margin>
+         <children>
+            <GridPane fx:id="gridPane" alignment="CENTER" hgap="10" minHeight="500" minWidth="678" vgap="10">
+              <columnConstraints>
+                <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints />
+
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/images/logo.png" />
+                     </image></ImageView>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Sucursales">
+            <items>
+              <MenuItem fx:id="sucursalesMI" mnemonicParsing="false" text="Lista de sucursales" />
+                <MenuItem fx:id="altaSucursalMI" mnemonicParsing="false" text="Alta de sucursal" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ejecutivos">
+            <items>
+              <MenuItem fx:id="ejecutivosMI" mnemonicParsing="false" text="Catálogo de ejecutivos" />
+                <MenuItem fx:id="altaEjecutivoMI" mnemonicParsing="false" text="Alta de ejecutivo" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Operaciones de cuenta">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Catálogo de cuentas" />
+                <MenuItem mnemonicParsing="false" text="Apertura de cuenta" />
+                <MenuItem mnemonicParsing="false" text="Realizar transacción" />
+                <MenuItem mnemonicParsing="false" text="Resumen de transacciones" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Clientes">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Catálogo de clientes" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
