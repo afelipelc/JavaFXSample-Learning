@@ -42,13 +42,13 @@
             <TableView fx:id="transaccionesTable" prefHeight="400.0" prefWidth="200.0">
               <columns>
                   <TableColumn fx:id="idCol" prefWidth="120.0" text="No." />
-                  <TableColumn fx:id="noCuentaCol" prefWidth="120.0" text="No. Cuenta" />
+                  <TableColumn fx:id="noCuentaCol" prefWidth="140.0" text="No. Cuenta" />
                   <TableColumn fx:id="cargoCol" prefWidth="110.0" text="Cargo" />
                   <TableColumn fx:id="abonoCol" prefWidth="110.0" text="Abono" />
-                  <TableColumn fx:id="referenciaCol" prefWidth="110.0" text="Referencia" />
+                  <TableColumn fx:id="referenciaCol" prefWidth="140.0" text="Referencia" />
                   <TableColumn fx:id="fechaCol" prefWidth="150.0" text="Fecha" />
-                  <TableColumn fx:id="sucursalCol" prefWidth="150.0" text="Sucursal" />
-                  <TableColumn fx:id="ejecutivoCol" prefWidth="150.0" text="Ejecutivo" />
+                  <TableColumn fx:id="sucursalCol" prefWidth="170.0" text="Sucursal" />
+                  <TableColumn fx:id="ejecutivoCol" prefWidth="170.0" text="Ejecutivo" />
               </columns>
                <GridPane.margin>
                   <Insets top="12.0" />
