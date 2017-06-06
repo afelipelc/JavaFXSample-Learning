@@ -1,32 +1,38 @@
-package bankutim.components.sucursales;
+package bankutim.components.ejecutivos;
 
-import bankutim.model.*;
+import bankutim.datasource.DataSource;
+import bankutim.datasource.EjecutivosDataSource;
+import bankutim.datasource.SucursalesDataSource;
+import bankutim.model.Ejecutivo;
+import bankutim.model.Estado;
+import bankutim.model.Sucursal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by felipe on 18/05/17.
+ * Created by felipe on 1/06/17.
  */
-public class SucursalController implements Initializable {
-    @FXML
-    TextField numeroSucursalTxt, nombreTxt, domicilioTxt;
-    @FXML
-    ComboBox estadoCmb;
+public class EjecutivoController implements Initializable {
 
     @FXML
-    Label mensajeLbl;
+    TextField idTxt, nombreTxt, apellidosTxt, domicilioTxt;
+    @FXML
+    ComboBox estadoCmb, sucursalCmb;
+
     @FXML
     Button aceptarBtn, cancelarBtn;
 
-
-    Sucursal sucursal = new Sucursal();
+    Ejecutivo ejecutivo = new Ejecutivo();
 
     boolean actionResult = false; //use for user action result
     Stage primaryStage;
@@ -35,10 +41,13 @@ public class SucursalController implements Initializable {
         return actionResult;
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.estadoCmb.getItems().addAll("Guerrero","Puebla", "Oaxaca");
+
+        //fill combobox with objects and set caption
+        this.estadoCmb.getItems().addAll(DataSource.Estados);
+
+        this.sucursalCmb.getItems().addAll(SucursalesDataSource.Sucursales()); //Custom object with toString method for displayData
 
         this.aceptarBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -52,10 +61,10 @@ public class SucursalController implements Initializable {
                 primaryStage = (Stage) aceptarBtn.getScene().getWindow();
 
                 //call datasource to storage object
-                sucursal = SucursalesDataSource.addSucursal(sucursal);
+                ejecutivo = EjecutivosDataSource.addEjecutivo(ejecutivo);
 
                 //if no error on saving, close window as OK
-                if(sucursal != null) {
+                if(ejecutivo != null) {
                     actionResult = true;
                     primaryStage.close();
                 }else {
@@ -81,10 +90,6 @@ public class SucursalController implements Initializable {
         });
     }
 
-    /**
-     * Take data from controls and store in sucursal object
-     * @return
-     */
     private boolean setSucursalData()
     {
         if (this.nombreTxt.getText().equals("")
@@ -99,36 +104,40 @@ public class SucursalController implements Initializable {
 
             alert.showAndWait();
 
-            mensajeLbl.setText("Ingrese todos los datos"); //message inline form
             this.nombreTxt.requestFocus();
             return false;
         }
 
-        this.sucursal.setNombre(this.nombreTxt.getText());
-        this.sucursal.setDomicilio(this.domicilioTxt.getText());
+        this.ejecutivo.setNombre(this.nombreTxt.getText());
+        this.ejecutivo.setApellidos(this.apellidosTxt.getText());
+        this.ejecutivo.setDomicilio(this.domicilioTxt.getText());
+        this.ejecutivo.setSucursal((Sucursal) sucursalCmb.getSelectionModel().getSelectedItem());
+        this.ejecutivo.setEstado((Estado) estadoCmb.getSelectionModel().getSelectedItem());
+
 
         return  true;
     }
 
-    public Sucursal getSucursal() {
-        return sucursal;
+    public Ejecutivo getEjecutivo() {
+        return ejecutivo;
     }
 
+    public void setEjecutivo(Ejecutivo ejecutivo) {
+        this.ejecutivo = ejecutivo;
 
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
-
-        if(!sucursal.equals(null))
-            loadSucursalData();
+        if(!ejecutivo.equals(null))
+            loadEjecutivoData();
     }
 
     /**
      * Load data from object to controls
      */
-    private void  loadSucursalData(){
-        this.numeroSucursalTxt.setText(sucursal.getId()+"");
-        this.nombreTxt.setText(sucursal.getNombre());
-        this.domicilioTxt.setText(sucursal.getDomicilio());
+    private void loadEjecutivoData(){
+        this.idTxt.setText(ejecutivo.getId()+"");
+        this.nombreTxt.setText(ejecutivo.getNombre());
+        this.apellidosTxt.setText(ejecutivo.getApellidos());
+        this.domicilioTxt.setText(ejecutivo.getDomicilio());
+        this.sucursalCmb.getSelectionModel().select(ejecutivo.getSucursal());
+        this.estadoCmb.getSelectionModel().select(ejecutivo.getEstado());
     }
-
 }

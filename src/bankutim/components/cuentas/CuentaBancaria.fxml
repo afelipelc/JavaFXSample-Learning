@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox prefHeight="410.0" prefWidth="450.0" stylesheets="@../../assets/css/formcss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankutim.components.cuentas.CuentaController">
+
+<VBox prefHeight="410.0" prefWidth="490.0" stylesheets="@../../assets/css/formcss.css" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankutim.components.cuentas.CuentaController">
    <children>
       <HBox alignment="CENTER" prefHeight="64.0" prefWidth="532.0" styleClass="header">
          <children>
@@ -20,7 +28,7 @@
                </font></Label>
          </children>
       </HBox>
-      <GridPane layoutX="114.0" layoutY="68.0" prefHeight="227.0" prefWidth="393.0">
+      <GridPane fx:id="datosCuenta" layoutX="114.0" layoutY="68.0" prefHeight="227.0" prefWidth="393.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" />
           <ColumnConstraints hgrow="SOMETIMES" />
@@ -42,19 +50,17 @@
             <Label text="Saldo" GridPane.rowIndex="4" />
             <Label text="Plazo en dias:" GridPane.rowIndex="5" />
             <Label text="Fecha de apertura:" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="25.0" />
-               </GridPane.margin></TextField>
-            <ComboBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <ComboBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="\$ 0.00" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-             <TextField editable="false" promptText="Automtico" GridPane.columnIndex="1">
+            
+             <ComboBox fx:id="titularCmb" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="sucursalCmb" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="tipoCmb" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="plazoCmb" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="saldoLbl" styleClass="label-bold" text="\$ 0.00" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+             <TextField fx:id="idTxt" editable="false" promptText="Automtico" GridPane.columnIndex="1">
                  <GridPane.margin>
                      <Insets right="25.0" />
                  </GridPane.margin></TextField>
+            <Label fx:id="fechaAperturaDtp" text="dd/MM/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
          <VBox.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -62,12 +68,12 @@
       </GridPane>
       <HBox alignment="CENTER_RIGHT" spacing="15.0" styleClass="buttons-container">
          <children>
-            <Button defaultButton="true" mnemonicParsing="false" text="Guardar">
+            <Button fx:id="aceptarBtn" defaultButton="true" mnemonicParsing="false" text="Guardar">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button cancelButton="true" layoutX="318.0" layoutY="30.0" mnemonicParsing="false" text="Cancelar">
+            <Button fx:id="cancelarBtn" cancelButton="true" layoutX="318.0" layoutY="30.0" mnemonicParsing="false" text="Cancelar">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>

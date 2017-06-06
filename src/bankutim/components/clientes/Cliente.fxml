@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox prefHeight="460.0" prefWidth="620.0" stylesheets="@../../assets/css/formcss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankutim.components.clientes.ClienteController">
+
+<VBox prefHeight="460.0" prefWidth="620.0" stylesheets="@../../assets/css/formcss.css" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankutim.components.clientes.ClienteController">
    <children>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" styleClass="header">
          <children>
@@ -53,7 +61,7 @@
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></Label>
-                  <ComboBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <ComboBox fx:id="estadoCmb" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></ComboBox>
@@ -73,12 +81,12 @@
                      <GridPane.margin>
                         <Insets top="25.0" />
                      </GridPane.margin></Label>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="nombreTxt" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></TextField>
                   <Label text="ID:" />
-                  <TextField disable="true" prefHeight="26.0" prefWidth="81.0" promptText="Automtico" GridPane.columnIndex="1">
+                  <TextField fx:id="idTxt" disable="true" prefHeight="26.0" prefWidth="81.0" promptText="Automtico" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin></TextField>
@@ -126,11 +134,11 @@
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="domicilioTxt" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="apellidosTxt" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></TextField>
@@ -149,12 +157,12 @@
          </padding></HBox>
       <HBox alignment="CENTER_RIGHT" spacing="15.0" styleClass="buttons-container">
          <children>
-            <Button defaultButton="true" mnemonicParsing="false" text="Guardar">
+            <Button fx:id="aceptarBtn" defaultButton="true" mnemonicParsing="false" text="Guardar">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button cancelButton="true" layoutX="537.0" layoutY="10.0" mnemonicParsing="false" text="Cancelar">
+            <Button fx:id="cancelarBtn" cancelButton="true" layoutX="537.0" layoutY="10.0" mnemonicParsing="false" text="Cancelar">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>

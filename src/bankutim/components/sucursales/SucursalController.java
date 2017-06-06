@@ -1,8 +1,10 @@
 package bankutim.components.sucursales;
 
+import bankutim.datasource.DataSource;
 import bankutim.datasource.EjecutivosDataSource;
 import bankutim.datasource.SucursalesDataSource;
 import bankutim.model.Ejecutivo;
+import bankutim.model.Estado;
 import bankutim.model.Sucursal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -43,7 +45,9 @@ public class SucursalController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         //fill combobox with string items
-        this.estadoCmb.getItems().addAll("Aguascalientes","Baja California","Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Ciudad de México","...","Zacatecas");
+        //this.estadoCmb.getItems().addAll("Aguascalientes","Baja California","Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Ciudad de México","...","Zacatecas");
+
+        this.estadoCmb.getItems().addAll(DataSource.Estados);
 
         //fill combobox with objects and set caption
         this.gerenteCmb.getItems().addAll(EjecutivosDataSource.Ejecutivos()); //Custom object with toString method for displayData
@@ -114,9 +118,11 @@ public class SucursalController implements Initializable {
 
         this.sucursal.setNombre(this.nombreTxt.getText());
         this.sucursal.setDomicilio(this.domicilioTxt.getText());
+        this.sucursal.setGerente((Ejecutivo) gerenteCmb.getSelectionModel().getSelectedItem());
+        this.sucursal.setEstado((Estado) estadoCmb.getSelectionModel().getSelectedItem());
 
         //test for selected object at combobox
-        System.out.println("Ejecutivo seleccionado" + ((Ejecutivo) gerenteCmb.getSelectionModel().getSelectedItem()).toString() );
+        //System.out.println("Ejecutivo seleccionado" + ((Ejecutivo) gerenteCmb.getSelectionModel().getSelectedItem()).toString() );
 
         return  true;
     }
@@ -140,6 +146,8 @@ public class SucursalController implements Initializable {
         this.numeroSucursalTxt.setText(sucursal.getId()+"");
         this.nombreTxt.setText(sucursal.getNombre());
         this.domicilioTxt.setText(sucursal.getDomicilio());
+        this.gerenteCmb.getSelectionModel().select(sucursal.getGerente());
+        this.estadoCmb.getSelectionModel().select(sucursal.getEstado());
     }
 
 }

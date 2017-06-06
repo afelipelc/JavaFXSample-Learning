@@ -79,3 +79,10 @@ root {
 .background-picture{
 	-fx-background-color: rgba(166,157,160,0.2);
 }
+
+.combo-box-base:disabled, .disabledCmb{
+    -fx-opacity: 2;
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+}

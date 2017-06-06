@@ -1,5 +1,6 @@
 package bankutim.model;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -11,6 +12,8 @@ public class Sucursal {
     private SimpleIntegerProperty id = new SimpleIntegerProperty();
     private SimpleStringProperty nombre = new SimpleStringProperty();
     private SimpleStringProperty domicilio = new SimpleStringProperty();
+    private Estado estado = null;
+    private Ejecutivo gerente;
     //...
 
     //constructors
@@ -59,5 +62,25 @@ public class Sucursal {
         this.domicilio.set(domicilio);
     }
 
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public Ejecutivo getGerente() {
+        return gerente;
+    }
+
+    public void setGerente(Ejecutivo gerente) {
+        this.gerente = gerente;
+    }
+
+    @Override
+    public String toString() {
+        return getNombre();
+    }
     //...
 }
