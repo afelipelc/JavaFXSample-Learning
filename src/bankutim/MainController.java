@@ -3,6 +3,7 @@ package bankutim;
 import bankutim.components.clientes.ClientesController;
 import bankutim.components.cuentas.CuentaController;
 import bankutim.components.cuentas.CuentasController;
+import bankutim.components.cuentas.TransaccionController;
 import bankutim.components.cuentas.TransaccionesController;
 import bankutim.components.ejecutivos.EjecutivoController;
 import bankutim.components.ejecutivos.EjecutivosController;
@@ -33,7 +34,7 @@ public class MainController implements Initializable {
 
     //menu items
     @FXML
-    MenuItem sucursalesMI, altaSucursalMI, ejecutivosMI, altaEjecutivoMI, altaCuentaMI, clientesMI, cuentasMI, transaccionesMI; //add all menu items id here....
+    MenuItem sucursalesMI, altaSucursalMI, ejecutivosMI, altaEjecutivoMI, altaCuentaMI, clientesMI, cuentasMI, transaccionesMI, nuevaTransaccionMI; //add all menu items id here....
 
 
     //end menu items
@@ -99,7 +100,7 @@ public class MainController implements Initializable {
         this.altaEjecutivoMI.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                //load Sucursal window form
+                //load Ejecutivo window form
 
                 try {
                     Parent root = FXMLLoader.load(EjecutivoController.class.getResource("Ejecutivo.fxml"));
@@ -129,7 +130,7 @@ public class MainController implements Initializable {
         this.altaCuentaMI.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                //load Sucursal window form
+                //load Cuenta window form
 
                 try {
                     Parent root = FXMLLoader.load(CuentaController.class.getResource("CuentaBancaria.fxml"));
@@ -164,6 +165,26 @@ public class MainController implements Initializable {
                 TransaccionesController transaccionesController = new TransaccionesController(application.getWithScreen(), application.getHeightScreen() - 32); //send current size screen
                 contenedorPrincipal.getChildren().clear();
                 contenedorPrincipal.getChildren().add(transaccionesController);
+            }
+        });
+
+        this.nuevaTransaccionMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                //load Transaccion window form
+
+                try {
+                    Parent root = FXMLLoader.load(TransaccionController.class.getResource("Transaccion.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Nueva transacción");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner( contenedorPrincipal.getScene().getWindow()); //set window parent
+                    stage.showAndWait();
+
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
+                }
             }
         });
     }

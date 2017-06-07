@@ -14,14 +14,14 @@ import java.util.Locale;
 public class Transaccion {
     private  int id;
     private Cuenta cuenta;
-    private String referencia, descripcion, infoIdentificacion;
+    private String referencia, descripcion, nombreRetira, infoIdentificacion;
     private  float cargo, abono;
     private boolean isAbono;
     private Date fecha;
     private Sucursal sucursal;
     private Ejecutivo ejecutivo;
 
-    public Transaccion(Cuenta cuenta, String referencia, String descripcion, String infoIdentificacion, float monto, boolean isAbono, Sucursal sucursal, Ejecutivo ejecutivo) {
+    public Transaccion(Cuenta cuenta, String referencia, String descripcion, String nombreRetira, String infoIdentificacion, float monto, boolean isAbono, Sucursal sucursal, Ejecutivo ejecutivo) {
 
         //current id for transaccion
         this.id = (TransaccionesDataSource.Transacciones().size() + 1);
@@ -57,6 +57,10 @@ public class Transaccion {
 
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public String getNombreRetira() {
+        return nombreRetira;
     }
 
     public String getInfoIdentificacion() {

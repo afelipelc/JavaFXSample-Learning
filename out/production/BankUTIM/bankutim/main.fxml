@@ -42,14 +42,14 @@
           <Menu mnemonicParsing="false" text="Ejecutivos">
             <items>
               <MenuItem fx:id="ejecutivosMI" mnemonicParsing="false" text="Catálogo de ejecutivos" />
-                <MenuItem fx:id="altaEjecutivoMI" mnemonicParsing="false" text="Alta de cliente" />
+                <MenuItem fx:id="altaEjecutivoMI" mnemonicParsing="false" text="Alta de ejecutivo" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Operaciones de cuenta">
             <items>
                 <MenuItem fx:id="cuentasMI" mnemonicParsing="false" text="Catálogo de cuentas" />
                 <MenuItem fx:id="altaCuentaMI" mnemonicParsing="false" text="Apertura de cuenta" />
-                <MenuItem mnemonicParsing="false" text="Realizar transacción" />
+                <MenuItem fx:id="nuevaTransaccionMI" mnemonicParsing="false" text="Realizar transacción" />
                 <MenuItem fx:id="transaccionesMI" mnemonicParsing="false" text="Resumen de transacciones" />
             </items>
           </Menu>

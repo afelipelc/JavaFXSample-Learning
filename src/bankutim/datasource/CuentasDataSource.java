@@ -19,4 +19,15 @@ public class CuentasDataSource {
         return item;
     }
 
+    public static  Cuenta buscarCuenta(int numeroCta){
+        //buscar en la lista de cuentas
+        //con bd sería un select * from cuenta where numero = numeroCta ...;
+        for(Cuenta cuenta : CuentasDataSource.Cuentas()){
+            if(cuenta.getId() == numeroCta){
+                return  cuenta;
+            }
+        }
+        return  null;
+    }
+
 }
