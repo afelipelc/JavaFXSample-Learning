@@ -1,6 +1,8 @@
 package bankutim.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by felipe on 17/05/17.
@@ -14,6 +16,13 @@ public class Cuenta {
     private TipoCuenta tipoCuenta; //crear un enumerador
     private Date fechaApertura;
     private float saldo;
+
+    //historial de transacciones
+    private List<Transaccion> transacciones = new ArrayList<Transaccion>();
+
+    public List<Transaccion> Transacciones() {
+        return transacciones;
+    }
 
     public int getId() {
         return id;
