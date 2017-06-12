@@ -1,5 +1,6 @@
 package bankutim;
 
+import bankutim.components.ejecutivos.EjecutivoController;
 import bankutim.components.sucursales.SucursalController;
 import bankutim.components.sucursales.SucursalesController;
 import javafx.event.ActionEvent;
@@ -80,5 +81,25 @@ public class MainController implements Initializable {
             }
             });
 
+        //altaEjecutivoMI
+        this.altaEjecutivoMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                //abrir la ventana de alta de ejecutivo
+                try {
+                    Parent root = FXMLLoader.load(EjecutivoController.class.getResource("Ejecutivo.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Agregar nuevo Ejecutivo");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner( contenedorPrincipal.getScene().getWindow()); //set window parent
+                    stage.showAndWait();
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
+                }
+
+            }
+        });
     }
 }

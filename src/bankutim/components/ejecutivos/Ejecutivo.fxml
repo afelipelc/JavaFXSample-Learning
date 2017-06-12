@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="460.0" prefWidth="620.0" stylesheets="@../../assets/css/formcss.css" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankutim.components.clientes.ClienteController">
+<VBox prefHeight="460.0" prefWidth="620.0" stylesheets="@../../assets/css/formcss.css" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankutim.components.ejecutivos.EjecutivoController">
    <children>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" styleClass="header">
          <children>
