@@ -17,4 +17,17 @@ public class EjecutivosDataSource {
         }
         return DataSource.Ejecutivos;
     }
+
+
+    public static Ejecutivo addEjecutivo(Ejecutivo ejecutivo) {
+
+        //{
+        //si el id de ejecutivo es 0, entonces
+        //poner el nuevo id = total de ejecutivos +1
+          DataSource.Ejecutivos.add(ejecutivo); //agrega el objeto a la colección
+        //}
+
+        return ejecutivo;
+
+    }
 }
