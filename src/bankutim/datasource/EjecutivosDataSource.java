@@ -17,4 +17,13 @@ public class EjecutivosDataSource {
         }
         return DataSource.Ejecutivos;
     }
+
+    public static Ejecutivo agregarEjecutivo(Ejecutivo ejecutivo){
+        if(ejecutivo.getId() == 0){
+            ejecutivo.setId( Ejecutivos().size() + 1 );
+            DataSource.Ejecutivos.add(ejecutivo);
+        }
+
+        return  ejecutivo;
+    }
 }
