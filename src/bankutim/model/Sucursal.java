@@ -60,4 +60,12 @@ public class Sucursal {
     }
 
     //...
+
+    //se recomienda que las clases modelo tengan un método llamado
+    //toString()   //tipo String
+
+    public String toString(){
+        return getNombre();
+    }
+
 }

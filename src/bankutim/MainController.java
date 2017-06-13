@@ -1,6 +1,7 @@
 package bankutim;
 
 import bankutim.components.ejecutivos.EjecutivoController;
+import bankutim.components.ejecutivos.EjecutivosController;
 import bankutim.components.sucursales.SucursalController;
 import bankutim.components.sucursales.SucursalesController;
 import javafx.event.ActionEvent;
@@ -98,6 +99,22 @@ public class MainController implements Initializable {
                 } catch (Exception ex) {
                     System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
                 }
+
+            }
+        });
+
+        this.ejecutivosMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                //cargar el control de usuario de ejecutivos
+                //en el contenedor principal del programa
+                EjecutivosController ejecutivosController = new EjecutivosController(application.getWithScreen(), application.getHeightScreen());
+
+                //limpiar el contenedor principal de la ventana
+                contenedorPrincipal.getChildren().clear();
+                //agregar el nuevo control
+                contenedorPrincipal.getChildren().add(ejecutivosController);
 
             }
         });
