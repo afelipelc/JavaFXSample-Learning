@@ -1,5 +1,7 @@
 package bankutim;
 
+import bankutim.components.ejecutivos.EjecutivoController;
+import bankutim.components.ejecutivos.EjecutivosController;
 import bankutim.components.sucursales.SucursalController;
 import bankutim.components.sucursales.SucursalesController;
 import javafx.event.ActionEvent;
@@ -79,6 +81,38 @@ public class MainController implements Initializable {
                 }
             }
             });
+
+        this.ejecutivosMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                //load module content into main window container
+                EjecutivosController ejecutivosController = new EjecutivosController(application.getWithScreen(), application.getHeightScreen() - 32); //send current size screen
+                contenedorPrincipal.getChildren().clear();
+                contenedorPrincipal.getChildren().add(ejecutivosController);
+
+            }
+        });
+
+        this.altaEjecutivoMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                //load Sucursal window form
+
+                try {
+                    Parent root = FXMLLoader.load(EjecutivoController.class.getResource("Ejecutivo.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Agregar nuevo Ejecutivo");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner( contenedorPrincipal.getScene().getWindow()); //set window parent
+                    stage.showAndWait();
+
+                    //setTableviewData(SucursalesDataSource.Sucursales()); //implementation required  :D
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
+                }
+            }
+        });
 
     }
 }

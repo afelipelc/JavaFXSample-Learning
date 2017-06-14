@@ -96,5 +96,15 @@ public abstract class Persona {
     public void setTelefono2(String telefono2) {
         this.telefono2 = telefono2;
     }
+
+
+    //se recomienda que las clases Modelo, cuenten con el método toString() que devuelva información del objeto
+
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellidos;
+    }
+
 }
 

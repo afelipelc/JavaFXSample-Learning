@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -68,6 +69,10 @@ public class EjecutivoController implements Initializable {
                 EjecutivosDataSource.agregarEjecutivo(ejecutivo);
 
                 //cerrar la ventana
+                //para poder cerrar la ventana, se debe acceder al objecto Stage que lo compone
+
+                ((Stage) aceptarBtn.getScene().getWindow()).close();
+
 
             }
         });
