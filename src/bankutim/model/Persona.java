@@ -104,4 +104,10 @@ public abstract class Persona {
     public String toString() {
         return this.nombre + " " + this.apellidos;
     }
+
+
+    public String getNombreCompleto(){
+        return this.nombre + " " + this.apellidos;
+    }
+
 }

@@ -16,8 +16,8 @@ public class EjecutivosDataSource {
     public  static List<Ejecutivo> Ejecutivos(){
         //static initial objects to test
         if(DataSource.Ejecutivos.size() == 0){
-            DataSource.Ejecutivos.add(new Ejecutivo(1, "Juan Pérez"));
-            DataSource.Ejecutivos.add(new Ejecutivo(2, "Pablo Mármol"));
+            DataSource.Ejecutivos.add(new Ejecutivo(1, "Juan"));
+            DataSource.Ejecutivos.add(new Ejecutivo(2, "Pablo"));
         }
         return DataSource.Ejecutivos;
     }

@@ -1,16 +1,24 @@
 package bankutim.components.ejecutivos;
 
+import bankutim.components.sucursales.SucursalController;
 import bankutim.datasource.EjecutivosDataSource;
 import bankutim.datasource.SucursalesDataSource;
 import bankutim.model.Ejecutivo;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -38,6 +46,9 @@ public class EjecutivosController extends BorderPane implements Initializable {
     @FXML TableColumn<Ejecutivo, String> nombreCol;
     @FXML TableColumn<Ejecutivo, String> domicilioCol;
 
+    @FXML
+    Button agregarBtn;
+
 
     /**
      * Constructor
@@ -63,7 +74,9 @@ public class EjecutivosController extends BorderPane implements Initializable {
 
         //asociar las columnas con los atributos de la clase Ejecutivo
         this.numeroCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, Integer>("id")); //asocia a ejecutivo.getId()
-        this.nombreCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, String>("nombre"));
+        this.nombreCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, String>("nombreCompleto"));
+        //"nombreCompleto" >>> ejecutivo.getNombreCompleto()            //nombreCompleto no existe como atributo, pero se tiene un método de lectura
+
         this.sucursalCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, String>("sucursal"));
         this.domicilioCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, String>("domicilio"));
 
@@ -73,7 +86,40 @@ public class EjecutivosController extends BorderPane implements Initializable {
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)   {
+        this.agregarBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //abrir la ventana de alta de ejecutivo
+                try {
+
+                    FXMLLoader fxmlLoader =  new FXMLLoader(EjecutivoController.class.getResource("Ejecutivo.fxml"));
+
+                    Parent root = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("Agregar nuevo Ejecutivo");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner( agregarBtn.getScene().getWindow()); //set window parent
+                    stage.showAndWait();
+
+                    //la ventana se ha cerrado
+
+                    //comprobar que el usuario dio click en aceptar (actionResult es true)
+                    //primero recuperar el objeto controlador
+                    EjecutivoController ejecutivoController = fxmlLoader.getController();
+                    if(ejecutivoController.isActionResult()){
+                        //recargar la lista de ejecutvos
+                        ejecutivosTable.setItems(FXCollections.observableList(EjecutivosDataSource.Ejecutivos()));
+                    }
+
+
+
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
+                }
+            }
+        });
 
     }
 }
