@@ -4,7 +4,6 @@ package bankutim.model;
  * Created by felipe on 17/05/17.
  */
 public  class Ejecutivo extends Persona{
-
     //campo
     //sucursal donde trabaja
     //sucursal es un objeto

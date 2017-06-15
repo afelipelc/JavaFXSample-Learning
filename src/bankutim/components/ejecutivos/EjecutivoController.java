@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,8 +43,6 @@ public class EjecutivoController implements Initializable{
         this.aceptarBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
-
                 /*
                 {si nombre o apellidos o sucursal no se ingresan, mostrar un mensaje de error y regresar (return)
                 }*/
@@ -53,9 +52,13 @@ public class EjecutivoController implements Initializable{
 
                     return; //cancelar la acción
                 }
+
                 /*
                 poner los datos de los txt al objeto ejecutivo*/
                 ejecutivo.setNombre(nombreTxt.getText());
+
+                //System.out.println(ejecutivo.getNombre());
+
                 ejecutivo.setApellidos(apellidosTxt.getText());
                 ejecutivo.setSucursal((Sucursal) sucursalCmb.getSelectionModel().getSelectedItem());
 
@@ -65,9 +68,29 @@ public class EjecutivoController implements Initializable{
                 ejecutivo = EjecutivosDataSource.addEjecutivo( ejecutivo );
 
                 /*
-                si se guardó (comprobar que ejecutivo no es null), cerrar la ventana
+                si se guardó (comprobar que ejecutivo no es null) y cerrar la ventana
                 sino entonces informar del error y cerrar la ventana
-                 */
+                1ra forma
+                */
+
+                if(ejecutivo != null){
+                    //cerrar ventana
+                    //acceder al escenario a través del botón
+                    //al tener el escenario, ya lo puedo cerrar
+                    //--------- Escenario -------------------|
+                    ((Stage) aceptarBtn.getScene().getWindow()).close();
+                }else {
+                    //informar del error y cerrar la ventana
+                    //alert de error
+
+                    //cerrar la ventana
+                    ((Stage) aceptarBtn.getScene().getWindow()).close();
+
+                }
+
+
+
+
 
 
             }

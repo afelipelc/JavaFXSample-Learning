@@ -1,5 +1,6 @@
 package bankutim;
 
+import bankutim.components.ejecutivos.EjecutivoController;
 import bankutim.components.sucursales.SucursalController;
 import bankutim.components.sucursales.SucursalesController;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -80,6 +82,35 @@ public class MainController implements Initializable {
             }
             });
 
+        this.altaEjecutivoMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                try { //prevenir errores
+                    Parent root = FXMLLoader.load(EjecutivoController.class.getResource("Ejecutivo.fxml"));
+                    //crear el escenario o ventana
+                    Stage stage = new Stage();
+                    stage.setTitle("Alta de ejecutivo");
+
+                    //asociar la UI de ejecutivo
+                    stage.setScene(new Scene(root));
+
+                    //establecer como ventana MODAL
+                    //MODAL: que se mantiene por encima de la ventana principal
+                    //no desaparece hasta que se cierra
+                    stage.initModality(Modality.WINDOW_MODAL);
+
+                    //establecer el padre de la ventana (ventana principal)
+                    //sobre encima de quien se debe de mantener
+                    stage.initOwner(contenedorPrincipal.getScene().getWindow());
+
+                    stage.showAndWait(); //mostrar y esperar a que se cierre
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
 
     }

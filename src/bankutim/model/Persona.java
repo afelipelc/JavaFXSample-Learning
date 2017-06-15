@@ -11,6 +11,7 @@ public abstract class Persona {
         return id;
     }
 
+    //persona.setId(532);
     public void setId(int id) {
         this.id = id;
     }
