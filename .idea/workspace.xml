@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bankutim/assets/css/formcss.css" afterPath="$PROJECT_DIR$/src/bankutim/assets/css/formcss.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bankutim/components/cuentas/Transaccion.fxml" afterPath="$PROJECT_DIR$/src/bankutim/components/cuentas/Transaccion.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionController.java" afterPath="$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bankutim/components/cuentas/Transacciones.fxml" afterPath="$PROJECT_DIR$/src/bankutim/components/cuentas/Transacciones.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionesController.java" afterPath="$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionesController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bankutim/datasource/TransaccionesDataSource.java" afterPath="$PROJECT_DIR$/src/bankutim/datasource/TransaccionesDataSource.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bankutim/model/Cuenta.java" afterPath="$PROJECT_DIR$/src/bankutim/model/Cuenta.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +71,69 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Transaccion.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bankutim/model/Transaccion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="65" column="39" lean-forward="true" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transacciones.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/Transacciones.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="52" column="55" lean-forward="false" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransaccionesController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionesController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="53" column="41" lean-forward="false" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransaccionesDataSource.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/bankutim/datasource/TransaccionesDataSource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+              <folding>
+                <element signature="e#456#457#0" expanded="true" />
+                <element signature="e#481#482#0" expanded="true" />
+                <element signature="e#525#526#0" expanded="true" />
+                <element signature="e#550#551#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cuenta.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bankutim/model/Cuenta.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+              <folding>
+                <element signature="e#3295#3296#0" expanded="true" />
+                <element signature="e#3329#3330#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,32 +196,32 @@
         <option value="$PROJECT_DIR$/src/bankutim/model/Persona.java" />
         <option value="$PROJECT_DIR$/src/bankutim/model/Sucursal.java" />
         <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/CuentaBancaria.fxml" />
-        <option value="$PROJECT_DIR$/src/bankutim/assets/css/formcss.css" />
         <option value="$PROJECT_DIR$/src/bankutim/components/ejecutivos/EjecutivosController.java" />
         <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/CuentaController.java" />
         <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/Cuentas.fxml" />
         <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/CuentasController.java" />
         <option value="$PROJECT_DIR$/src/bankutim/datasource/DataSource.java" />
-        <option value="$PROJECT_DIR$/src/bankutim/datasource/TransaccionesDataSource.java" />
-        <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionesController.java" />
-        <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/Transacciones.fxml" />
-        <option value="$PROJECT_DIR$/src/bankutim/model/Cuenta.java" />
-        <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/Transaccion.fxml" />
         <option value="$PROJECT_DIR$/src/bankutim/model/Cliente.java" />
         <option value="$PROJECT_DIR$/src/bankutim/datasource/CuentasDataSource.java" />
         <option value="$PROJECT_DIR$/src/bankutim/model/Transaccion.java" />
         <option value="$PROJECT_DIR$/src/bankutim/components/ejecutivos/Ejecutivos.fxml" />
         <option value="$PROJECT_DIR$/src/bankutim/main.fxml" />
         <option value="$PROJECT_DIR$/src/bankutim/MainController.java" />
+        <option value="$PROJECT_DIR$/src/bankutim/model/Cuenta.java" />
+        <option value="$PROJECT_DIR$/src/bankutim/assets/css/formcss.css" />
         <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionController.java" />
+        <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/Transaccion.fxml" />
+        <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/Transacciones.fxml" />
+        <option value="$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionesController.java" />
+        <option value="$PROJECT_DIR$/src/bankutim/datasource/TransaccionesDataSource.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="y" value="24" />
-    <option name="width" value="1280" />
-    <option name="height" value="696" />
+    <option name="width" value="1366" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -622,19 +690,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1280" height="696" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5458937" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54559046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662538" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31561998" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31390134" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962631" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22547585" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -728,8 +797,26 @@
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bankutim/model/Cuenta.java</url>
+          <line>79</line>
+          <properties />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bankutim/model/Cuenta.java</url>
+          <line>88</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bankutim/model/Cuenta.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="21" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -884,13 +971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bankutim/assets/css/formcss.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="82" column="26" lean-forward="false" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bankutim/components/ejecutivos/EjecutivoController.java" />
     <entry file="file://$PROJECT_DIR$/src/bankutim/components/ejecutivos/EjecutivosController.java" />
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Object.java">
@@ -922,24 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="46" column="9" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/Transacciones.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="50" column="65" lean-forward="false" selection-start-line="50" selection-start-column="65" selection-end-line="50" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bankutim/datasource/TransaccionesDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -984,19 +1046,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/CuentasController.java" />
-    <entry file="file://$PROJECT_DIR$/src/bankutim/model/Transaccion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="26" column="71" lean-forward="false" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
-          <folding>
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#1442#1443#0" expanded="true" />
-            <element signature="e#1623#1624#0" expanded="true" />
-            <element signature="e#1658#1659#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bankutim/components/ejecutivos/Ejecutivos.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1058,38 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="130" column="86" lean-forward="false" selection-start-line="130" selection-start-column="86" selection-end-line="130" selection-end-column="86" />
-          <folding>
-            <element signature="class#5447:5826" expanded="false" />
-            <element signature="class#5870:6157" expanded="false" />
-            <element signature="class#6202:8347" expanded="false" />
-            <element signature="class#8466:8740" expanded="false" />
-            <element signature="method#setTransaccionData#0;class#TransaccionController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/Transaccion.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bankutim/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -1098,12 +1115,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionesController.java" />
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bankutim/assets/css/formcss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bankutim/model/Cuenta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="83" column="9" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+        <state relative-caret-position="187">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="e#3295#3296#0" expanded="true" />
+            <element signature="e#3329#3330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="98" column="22" lean-forward="false" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/Transaccion.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="160" column="53" lean-forward="true" selection-start-line="160" selection-start-column="53" selection-end-line="160" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bankutim/model/Transaccion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="65" column="39" lean-forward="true" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/Transacciones.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="52" column="55" lean-forward="false" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bankutim/components/cuentas/TransaccionesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="53" column="41" lean-forward="false" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bankutim/datasource/TransaccionesDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

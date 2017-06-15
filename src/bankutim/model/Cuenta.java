@@ -77,7 +77,6 @@ public class Cuenta {
     }
 
     public Transaccion tryTransaccion(Transaccion transaccion){
-
         transaccion = transaccion.isAbono() ? Depositar(transaccion) : Retirar(transaccion);
         if(transaccion != null){
             TransaccionesDataSource.addTransaccion(transaccion); //add to general list
@@ -123,5 +122,9 @@ public class Cuenta {
     public String getSaldoFormat() {
         return  NumberFormat.getCurrencyInstance(new Locale("es", "MX"))
                 .format(saldo);
+    }
+
+    public String toString(){
+        return  this.id+"";
     }
 }

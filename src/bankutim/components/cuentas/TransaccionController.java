@@ -23,6 +23,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -47,7 +48,7 @@ public class TransaccionController implements Initializable{
     RadioButton abonoRbtn, retiroRbtn;
 
     @FXML
-    Button aceptarBtn, cancelarBtn;
+    Button aceptarBtn, cancelarBtn, verCuentaBtn;
     @FXML
     HBox datosTransaccion;
 
@@ -57,7 +58,7 @@ public class TransaccionController implements Initializable{
 
     DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-    boolean actionResult = false, isAbono = false, isEditable; //use for user action result
+    boolean actionResult = false, isAbono = false, isEditable = true; //use for user action result
     Stage primaryStage;
 
     public boolean getActionResult() {
@@ -94,7 +95,7 @@ public class TransaccionController implements Initializable{
             public void handle(KeyEvent event) {
 
                 //si presiona enter
-                if(event.getCode() == KeyCode.ENTER){
+                if(event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.TAB){
                     try {
                         //search cuenta
                         cuenta = CuentasDataSource.buscarCuenta(Integer.parseInt(cuentaTxt.getText()));
@@ -110,26 +111,9 @@ public class TransaccionController implements Initializable{
                         }
 
                         //if exist, show cuenta form
-
-                        FXMLLoader fxmlLoader = new FXMLLoader(CuentaController.class.getResource("CuentaBancaria.fxml"));
-                        Parent root = (Parent) fxmlLoader.load();
-                        Stage stage = new Stage();
-                        stage.setTitle("Datos de la Cuenta");
-                        stage.setScene(new Scene(root));
-                        stage.initModality(Modality.WINDOW_MODAL);
-
-                        stage.initOwner(((Node) event.getSource()).getScene().getWindow());
-                        CuentaController controller = fxmlLoader.getController();
-                        controller.setCuenta(cuenta);
-                        stage.showAndWait();
-
-                        cuentaTxt.setDisable(true); //prevent change, user can cancel
-                        cuentaTxt.setStyle("-fx-font-weight: 800;");
-                        aceptarBtn.setDisable(false);
-
-
+                        openAccount();
                         event.consume(); //end of event to prevent close primary stage
-
+                        verCuentaBtn.setDisable(false);
                         return;
                     }catch (Exception ex){
 
@@ -148,11 +132,20 @@ public class TransaccionController implements Initializable{
             }
         });
 
+        this.verCuentaBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                openAccount();
+                event.consume(); //end of event to prevent close primary stage
+            }
+        });
+
         //event on radios
         this.abonoRbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 isAbono = abonoRbtn.isSelected();
+                retiroRbtn.setSelected(!isAbono);
                 nombreRetiraTxt.setText("");
                 nombreRetiraTxt.setDisable(true);
                 infoIdentificacionTxt.setText("");
@@ -163,6 +156,7 @@ public class TransaccionController implements Initializable{
         this.retiroRbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                abonoRbtn.setSelected(false);
                 isAbono = !retiroRbtn.isSelected();
                 nombreRetiraTxt.setDisable(false);
                 infoIdentificacionTxt.setDisable(false);
@@ -194,7 +188,8 @@ public class TransaccionController implements Initializable{
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Transacción exitosa");
                     alert.setHeaderText("La transacción fue realizada correctamente");
-                    alert.setContentText("Transacción realizada. No. " + transaccion.getId() + "\nFecha: " + transaccion.getFechaFormat());
+                    alert.setContentText("Transacción realizada. No. " + transaccion.getId() + "\nFecha: " + transaccion.getFechaFormat() + "\nMonto: " + (transaccion.isAbono() ? transaccion.getAbonoFormat() : transaccion.getCargoFormat()));
+
                     alert.showAndWait();
 
                     idTxt.setText(transaccion.getId() + "");
@@ -238,9 +233,36 @@ public class TransaccionController implements Initializable{
         });
     }
 
+    private void openAccount() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(CuentaController.class.getResource("CuentaBancaria.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Datos de la Cuenta");
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.WINDOW_MODAL);
+
+            stage.initOwner(aceptarBtn.getScene().getWindow());
+            CuentaController controller = fxmlLoader.getController();
+            controller.setCuenta(cuenta);
+            stage.showAndWait();
+
+            cuentaTxt.setDisable(true); //prevent change, user can cancel
+            cuentaTxt.setStyle("-fx-font-weight: 800;");
+            aceptarBtn.setDisable(false);
+        }catch (Exception ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error al abrir los dato de la cuenta");
+            alert.setContentText("Vuelva intentarlo");
+            alert.showAndWait();
+        }
+
+    }
+
     private boolean setTransaccionData(){
 
-        if (this.sucursalCmb.getSelectionModel().isEmpty() || this.ejecutivoCmb.getSelectionModel().isEmpty() || cuenta != null || this.referenciaTxt.getText().isEmpty() || this.montoTxt.getText().isEmpty()  ) {
+        if (this.sucursalCmb.getSelectionModel().isEmpty() || this.ejecutivoCmb.getSelectionModel().isEmpty() || cuenta == null || this.referenciaTxt.getText().isEmpty() || this.montoTxt.getText().isEmpty()  ) {
 
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -253,6 +275,33 @@ public class TransaccionController implements Initializable{
             return false;
         }
 
+        float monto = 0;
+        try{
+            monto = Float.parseFloat(montoTxt.getText());
+            if(monto == 0){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error...");
+                alert.setHeaderText("Ingrese el monto correctamente");
+                alert.setContentText("El monto debe ser mayor que cero.");
+                //for more JavaFX Dialogs see examples at http://code.makery.ch/blog/javafx-dialogs-official/
+                alert.showAndWait();
+                montoTxt.setText("");
+                montoTxt.requestFocus();
+
+                return false;
+            }
+        }catch (Exception ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error...");
+            alert.setHeaderText("Ingreso el monto correctamente");
+            alert.setContentText("Debe ingresar un monto con números.");
+            //for more JavaFX Dialogs see examples at http://code.makery.ch/blog/javafx-dialogs-official/
+            alert.showAndWait();
+            montoTxt.setText("");
+            montoTxt.requestFocus();
+
+            return false;
+        }
         //if is Cargo
         if(!isAbono && (nombreRetiraTxt.getText().isEmpty() || this.infoIdentificacionTxt.getText().isEmpty() )){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -274,7 +323,7 @@ public class TransaccionController implements Initializable{
                 this.descripcionTxt.getText(),
                 this.nombreRetiraTxt.getText(),
                 this.infoIdentificacionTxt.getText(),
-                0,
+                monto,
                 isAbono,
                 (Sucursal) this.sucursalCmb.getSelectionModel().getSelectedItem(),
                 (Ejecutivo) this.ejecutivoCmb.getSelectionModel().getSelectedItem()

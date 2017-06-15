@@ -19,4 +19,13 @@ public class TransaccionesDataSource {
 
         return item;
     }
+
+    public static float totalTransacciones(){
+        return  0;
+    }
+
+
+    public static float totalDepositos(){
+        return  0;
+    }
 }

@@ -32,7 +32,7 @@
             <GridPane prefHeight="226.0" prefWidth="300.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -63,11 +63,19 @@
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></Label>
-
-                  <TextField fx:id="cuentaTxt" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="10.0" />
-                     </GridPane.margin></TextField>
+                     </GridPane.margin>
+                     <children>
+      
+                        <TextField fx:id="cuentaTxt">
+                           <HBox.margin>
+                              <Insets right="8.0" />
+                           </HBox.margin></TextField>
+                        <Button fx:id="verCuentaBtn" disable="true" maxHeight="-Infinity" mnemonicParsing="false" styleClass="button-small" text="Button" />
+                     </children>
+                  </HBox>
                   <TextField fx:id="referenciaTxt" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets right="10.0" />
@@ -83,12 +91,12 @@
                   </TextField>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
                      <children>
+                         <RadioButton fx:id="abonoRbtn" layoutX="98.0" layoutY="20.0" mnemonicParsing="false" text="Abono">
+                             <font>
+                                 <Font size="16.0" />
+                             </font>
+                         </RadioButton>
                         <RadioButton fx:id="retiroRbtn" mnemonicParsing="false" text="Cargo">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </RadioButton>
-                        <RadioButton fx:id="abonoRbtn" layoutX="98.0" layoutY="20.0" mnemonicParsing="false" text="Abono">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -147,14 +155,15 @@
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></ComboBox>
+                   <TextField fx:id="nombreRetiraTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2">
+                       <GridPane.margin>
+                           <Insets right="10.0" />
+                       </GridPane.margin></TextField>
                   <TextField fx:id="infoIdentificacionTxt" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></TextField>
-                  <TextField fx:id="nombreRetiraTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2">
-                     <GridPane.margin>
-                        <Insets right="10.0" />
-                     </GridPane.margin></TextField>
+
                   <Label fx:id="fechaLbl" text="dd/MM/yyyy HH:mm" GridPane.columnIndex="1" />
                </children>
             </GridPane>
