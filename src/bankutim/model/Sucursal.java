@@ -60,5 +60,7 @@ public class Sucursal {
     }
 
     //...
-
+    public String toString(){
+        return  this.getNombre();
+    }
 }

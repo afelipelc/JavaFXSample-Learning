@@ -1,8 +1,17 @@
 package bankutim.components.ejecutivos;
 
+import bankutim.datasource.EjecutivosDataSource;
+import bankutim.model.Ejecutivo;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -18,6 +27,21 @@ public class EjecutivosController extends BorderPane implements Initializable {
 
     @FXML
     BorderPane containerBP;
+
+
+    //asociar el TableView
+    @FXML
+    TableView <Ejecutivo> ejecutivosTable;
+
+    //asociar las columnas de acuerdo al tipo de dato
+    //a desplegar
+    @FXML
+    TableColumn<Ejecutivo, Integer > idCol;
+
+    @FXML TableColumn<Ejecutivo, String> sucursalCol, nombreCol, domicilioCol;
+
+    @FXML
+    Button agregarBtn;
 
 
     /**
@@ -45,11 +69,34 @@ public class EjecutivosController extends BorderPane implements Initializable {
         
         containerBP.setPrefSize(width, height);
 
+        //asociar las columnas con los atributos del objeto
+        this.idCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, Integer>("id"));
+
+        this.sucursalCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, String>("sucursal"));
+
+        this.nombreCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, String>("nombre"));
+
+        this.domicilioCol.setCellValueFactory(new PropertyValueFactory<Ejecutivo, String>("domicilio"));
+
+        //cargar la lista de ejecutivos
+        ejecutivosTable.setItems(FXCollections.observableList(EjecutivosDataSource.Ejecutivos()));
+
+
+
 
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.agregarBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                //abrir la ventana
+
+
+            }
+        });
 
     }
 }
