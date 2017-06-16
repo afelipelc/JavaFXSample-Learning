@@ -96,6 +96,12 @@ public class EjecutivoController implements Initializable{
             }
         });
 
+        this.cancelarBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ((Stage) cancelarBtn.getScene().getWindow()).close();
+            }
+        });
 
 
     }
