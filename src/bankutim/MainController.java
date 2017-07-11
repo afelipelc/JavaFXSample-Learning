@@ -1,5 +1,9 @@
 package bankutim;
 
+import bankutim.components.clientes.ClientesController;
+import bankutim.components.cuentas.*;
+import bankutim.components.ejecutivos.EjecutivoController;
+import bankutim.components.ejecutivos.EjecutivosController;
 import bankutim.components.sucursales.SucursalController;
 import bankutim.components.sucursales.SucursalesController;
 import javafx.event.ActionEvent;
@@ -27,7 +31,7 @@ public class MainController implements Initializable {
 
     //menu items
     @FXML
-    MenuItem sucursalesMI, altaSucursalMI, ejecutivosMI, altaEjecutivoMI; //add all menu items id here....
+    MenuItem sucursalesMI, altaSucursalMI, ejecutivosMI, altaEjecutivoMI, altaCuentaMI, clientesMI, cuentasMI, transaccionesMI, nuevaTransaccionMI, consultarCuentaMI; //add all menu items id here....
 
 
     //end menu items
@@ -78,7 +82,116 @@ public class MainController implements Initializable {
                     System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
                 }
             }
-            });
+        });
 
+        this.ejecutivosMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //load module content into main window container
+                EjecutivosController ejecutivosController = new EjecutivosController(application.getWithScreen(), application.getHeightScreen() - 32); //send current size screen
+                contenedorPrincipal.getChildren().clear();
+                contenedorPrincipal.getChildren().add(ejecutivosController);
+            }
+        });
+
+        this.altaEjecutivoMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                //load Ejecutivo window form
+
+                try {
+                    Parent root = FXMLLoader.load(EjecutivoController.class.getResource("Ejecutivo.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Agregar nuevo Ejecutivo");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner( contenedorPrincipal.getScene().getWindow()); //set window parent
+                    stage.showAndWait();
+
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
+                }
+            }
+        });
+
+        this.cuentasMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //load module content into main window container
+                CuentasController cuentasController = new CuentasController(application.getWithScreen(), application.getHeightScreen() - 32); //send current size screen
+                contenedorPrincipal.getChildren().clear();
+                contenedorPrincipal.getChildren().add(cuentasController);
+            }
+        });
+
+        this.altaCuentaMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                //load Cuenta window form
+
+                try {
+                    Parent root = FXMLLoader.load(CuentaController.class.getResource("CuentaBancaria.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Apertura de Cuenta");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner( contenedorPrincipal.getScene().getWindow()); //set window parent
+                    stage.showAndWait();
+
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
+                }
+            }
+        });
+
+
+        this.clientesMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //load module content into main window container
+                ClientesController clientesController = new ClientesController(application.getWithScreen(), application.getHeightScreen() - 32); //send current size screen
+                contenedorPrincipal.getChildren().clear();
+                contenedorPrincipal.getChildren().add(clientesController);
+            }
+        });
+
+        this.transaccionesMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //load module content into main window container
+                TransaccionesController transaccionesController = new TransaccionesController(application.getWithScreen(), application.getHeightScreen() - 32); //send current size screen
+                contenedorPrincipal.getChildren().clear();
+                contenedorPrincipal.getChildren().add(transaccionesController);
+            }
+        });
+
+        this.nuevaTransaccionMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                //load Transaccion window form
+
+                try {
+                    Parent root = FXMLLoader.load(TransaccionController.class.getResource("Transaccion.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Nueva transacción");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.initOwner( contenedorPrincipal.getScene().getWindow()); //set window parent
+                    stage.showAndWait();
+
+                } catch (Exception ex) {
+                    System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
+                }
+            }
+        });
+
+        this.consultarCuentaMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                EstadoCuentaController estadoCuentaController = new EstadoCuentaController(application.getWithScreen(), application.getHeightScreen() - 32); //send current size screen
+                contenedorPrincipal.getChildren().clear();
+                contenedorPrincipal.getChildren().add(estadoCuentaController);
+            }
+        });
     }
 }

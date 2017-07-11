@@ -34,8 +34,10 @@
               <columns>
                 <TableColumn fx:id="numeroCol" prefWidth="100.0" text="Número" />
                 <TableColumn fx:id="nombreCol" prefWidth="175.0" text="Nombre" />
+                  <TableColumn fx:id="gerenteCol" prefWidth="175.0" text="Gerente" />
                   <TableColumn fx:id="domicilioCol" prefWidth="275.0" text="Domicilio" />
-                  <TableColumn prefWidth="175.0" text="Gerente" />
+                  <TableColumn fx:id="estadoCol" prefWidth="175.0" text="Estado" />
+
               </columns>
                <GridPane.margin>
                   <Insets top="12.0" />

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
 <?import java.lang.String?>
-<fx:root fx:id="containerBP" prefHeight="400.0" prefWidth="600.0" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<fx:root fx:id="containerBP" prefHeight="400.0" prefWidth="600.0" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <HBox alignment="CENTER" prefHeight="60.0" styleClass="header" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -31,13 +39,18 @@
           <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView fx:id="sucursalesTable" prefHeight="400.0" prefWidth="200.0">
+            <TableView fx:id="transaccionesTable" prefHeight="400.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="100.0" text="No." />
-                <TableColumn prefWidth="120.0" text="No. Cuenta" />
-                  <TableColumn prefWidth="110.0" text="Cargo" />
-                  <TableColumn prefWidth="110.0" text="Abono" />
-                  <TableColumn prefWidth="150.0" text="Ejecutivo" />
+                  <TableColumn fx:id="idCol" prefWidth="120.0" text="No." />
+                  <TableColumn fx:id="noCuentaCol" prefWidth="140.0" text="No. Cuenta" />
+                  <TableColumn fx:id="cargoCol" prefWidth="110.0" text="Cargo" />
+                  <TableColumn fx:id="abonoCol" prefWidth="110.0" text="Abono" />
+                  <TableColumn fx:id="referenciaCol" prefWidth="140.0" text="Referencia" />
+                  <TableColumn fx:id="fechaCol" prefWidth="150.0" text="Fecha" />
+                  <TableColumn fx:id="sucursalCol" prefWidth="170.0" text="Sucursal" />
+                  <TableColumn fx:id="ejecutivoCol" prefWidth="170.0" text="Ejecutivo" />
+                  <TableColumn fx:id="nombreRetiraCol" prefWidth="170.0" text="Nombre Retira" />
+                  <TableColumn fx:id="identificacionCol" prefWidth="170.0" text="Núm. y tipo Identificación" />
               </columns>
                <GridPane.margin>
                   <Insets top="12.0" />
@@ -57,7 +70,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0" GridPane.rowIndex="1">
                <children>
                   <Label text="Total en cargos:" />
-                  <Label layoutX="10.0" layoutY="27.0" text="\$ 0.00">
+                  <Label fx:id="totalCargosLbl" layoutX="10.0" layoutY="27.0" text="\$ 0.00">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -67,7 +80,7 @@
                         <Insets left="40.0" />
                      </HBox.margin>
                   </Label>
-                  <Label layoutX="130.0" layoutY="27.0" text="\$ 0.00">
+                  <Label fx:id="totalAbonosLbl" layoutX="130.0" layoutY="27.0" text="\$ 0.00">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

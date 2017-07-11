@@ -67,6 +67,7 @@ root {
     -fx-padding: 5 5 5 5;
 }
 
+
 .buttons-container{
     -fx-padding:20 50 0 0;
     -fx-margin: 0 0 25 0 ;
@@ -78,4 +79,11 @@ root {
 
 .background-picture{
 	-fx-background-color: rgba(166,157,160,0.2);
+}
+
+.combo-box-base:disabled, .disabledCmb{
+    -fx-opacity: 2;
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-font-weight: bold;
 }

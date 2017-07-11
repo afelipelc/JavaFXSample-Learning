@@ -19,6 +19,15 @@ public final class SucursalesDataSource {
         if(DataSource.Sucursales.size() == 0){
             DataSource.Sucursales.add(new Sucursal(1,"UTIM Central","Prol. Reforma 168, barrio de Santiago Mihuacán"));
             DataSource.Sucursales.add(new Sucursal(2,"Unidad II","Centenario No. 123, Tulcingo del Valle, Puebla..."));
+
+            //set sucursales Gerente
+            DataSource.Sucursales.get(0).setGerente(EjecutivosDataSource.Ejecutivos().get(0));
+
+            DataSource.Sucursales.get(1).setGerente(EjecutivosDataSource.Ejecutivos().get(1));
+            //set estado
+            DataSource.Sucursales.get(0).setEstado(DataSource.Estados.get(20));
+            DataSource.Sucursales.get(1).setEstado(DataSource.Estados.get(20));
+
         }
 
         return DataSource.Sucursales;

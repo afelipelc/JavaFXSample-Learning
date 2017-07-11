@@ -43,6 +43,10 @@ public class SucursalesController extends BorderPane implements Initializable   
     TableColumn<Sucursal, String> nombreCol;
     @FXML
     TableColumn<Sucursal, String> domicilioCol;
+    @FXML
+    TableColumn<Sucursal, String> estadoCol;
+    @FXML
+    TableColumn<Sucursal, String> gerenteCol;
 
 
     //Stage primaryStage;
@@ -68,7 +72,8 @@ public class SucursalesController extends BorderPane implements Initializable   
         numeroCol.setCellValueFactory(new PropertyValueFactory<Sucursal, Integer>("id"));
         nombreCol.setCellValueFactory(new PropertyValueFactory<Sucursal, String>("nombre"));
         domicilioCol.setCellValueFactory(new PropertyValueFactory<Sucursal, String>("domicilio"));
-
+        estadoCol.setCellValueFactory(new PropertyValueFactory<Sucursal, String>("estado"));
+        gerenteCol.setCellValueFactory(new PropertyValueFactory<Sucursal,String>("gerente"));
         //load initial data
         setSucursalesTableViewData();
 
