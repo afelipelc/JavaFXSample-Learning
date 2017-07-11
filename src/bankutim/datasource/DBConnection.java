@@ -11,10 +11,17 @@ import java.sql.SQLException;
  * Created by felipe on 17/05/17.
  */
 public class DBConnection {
+
+
     //MySQL Server credetials
     private static String host ="localhost", db="BankUTIM", user = "root", password = "felipe";
+
+
+
+
     //JDBC connection path to MySQL Server
     private static String DbUrl = "jdbc:mysql://"+host+"/"+db;
+                              //jdbc:mysq://localhost/BankUTIM
     //conection object that'll be opened and closed in each query
 
     private Connection connectionDB;
@@ -24,6 +31,7 @@ public class DBConnection {
      * @return
      */
     public Connection OpenConnection(){
+
         try{
             connectionDB = DriverManager.getConnection(DbUrl, user, password);
             return connectionDB;
@@ -34,6 +42,7 @@ public class DBConnection {
             alert.setHeaderText("Un error ha ocurrido al conectarse a la BD");
             alert.setContentText("Abra y cierre el programa, si el error persiste entonces\ncontacte a Soporte Técnico.");
             alert.showAndWait();
+
             return null;
         }
     }
