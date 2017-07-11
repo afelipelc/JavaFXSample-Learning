@@ -94,8 +94,10 @@ public class TransaccionController implements Initializable{
             @Override
             public void handle(KeyEvent event) {
 
-                //si presiona enter
-                if(event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.TAB){
+                if(event.getCode() == KeyCode.ESCAPE) {
+                    cancelarBtn.requestFocus();
+                }else if(event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.TAB){
+                    //si presiona enter o tab
                     try {
                         //search cuenta
                         cuenta = CuentasDataSource.buscarCuenta(Integer.parseInt(cuentaTxt.getText()));
@@ -114,6 +116,7 @@ public class TransaccionController implements Initializable{
                         openAccount();
                         event.consume(); //end of event to prevent close primary stage
                         verCuentaBtn.setDisable(false);
+                        referenciaTxt.requestFocus();
                         return;
                     }catch (Exception ex){
 

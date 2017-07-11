@@ -48,7 +48,7 @@
             <Label text="Sucursal:" GridPane.rowIndex="2" />
             <Label text="Tipo de cuenta:" GridPane.rowIndex="3" />
             <Label text="Saldo" GridPane.rowIndex="4" />
-            <Label text="Plazo en dias:" GridPane.rowIndex="5" />
+            <Label text="Plazo en días:" GridPane.rowIndex="5" />
             <Label text="Fecha de apertura:" GridPane.rowIndex="6" />
             
              <ComboBox fx:id="titularCmb" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />

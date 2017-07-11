@@ -49,6 +49,8 @@
                   <TableColumn fx:id="fechaCol" prefWidth="150.0" text="Fecha" />
                   <TableColumn fx:id="sucursalCol" prefWidth="170.0" text="Sucursal" />
                   <TableColumn fx:id="ejecutivoCol" prefWidth="170.0" text="Ejecutivo" />
+                  <TableColumn fx:id="nombreRetiraCol" prefWidth="170.0" text="Nombre Retira" />
+                  <TableColumn fx:id="identificacionCol" prefWidth="170.0" text="Núm. y tipo Identificación" />
               </columns>
                <GridPane.margin>
                   <Insets top="12.0" />

@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -121,6 +123,11 @@ public class TransaccionesController extends BorderPane implements Initializable
 
     private  void setTransaccionesTableViewData(){
         this.transaccionesTable.setItems(FXCollections.observableList(TransaccionesDataSource.Transacciones()));
+
+        this.totalCargosLbl.setText(NumberFormat.getCurrencyInstance(new Locale("es", "MX"))
+                .format(TransaccionesDataSource.totalCargos()));
+        this.totalAbonosLbl.setText(NumberFormat.getCurrencyInstance(new Locale("es", "MX"))
+                .format(TransaccionesDataSource.totalDepositos()));
 
     }
 

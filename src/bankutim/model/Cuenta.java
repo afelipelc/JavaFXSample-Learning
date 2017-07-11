@@ -127,4 +127,21 @@ public class Cuenta {
     public String toString(){
         return  this.id+"";
     }
+
+    /**
+     * return total addition of Cargo from all transacciones
+     * @return
+     */
+    public double totalCargos(){
+        return  transacciones.stream().mapToDouble( obj -> obj.getCargo()).sum();
+    }
+
+
+    /**
+     * return total addition of Deposito from all transacciones
+     * @return
+     */
+    public double totalDepositos(){
+        return  transacciones.stream().mapToDouble( obj -> obj.getAbono()).sum();
+    }
 }

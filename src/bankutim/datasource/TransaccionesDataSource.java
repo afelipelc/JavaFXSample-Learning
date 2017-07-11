@@ -20,12 +20,21 @@ public class TransaccionesDataSource {
         return item;
     }
 
-    public static float totalTransacciones(){
-        return  0;
+    /**
+     * return total addition of Cargo from all transacciones
+     * @return
+     */
+    public static double totalCargos(){
+        return  Transacciones().stream().mapToDouble( obj -> obj.getCargo()).sum();
     }
 
 
-    public static float totalDepositos(){
-        return  0;
+    /**
+     * return total addition of Deposito from all transacciones
+     * @return
+     */
+    public static double totalDepositos(){
+
+        return  Transacciones().stream().mapToDouble( obj -> obj.getAbono()).sum();
     }
 }

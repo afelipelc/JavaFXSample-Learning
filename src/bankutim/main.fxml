@@ -49,6 +49,7 @@
             <items>
                 <MenuItem fx:id="cuentasMI" mnemonicParsing="false" text="Catálogo de cuentas" />
                 <MenuItem fx:id="altaCuentaMI" mnemonicParsing="false" text="Apertura de cuenta" />
+                <MenuItem fx:id="consultarCuentaMI" mnemonicParsing="false" text="Consultar cuenta" />
                 <MenuItem fx:id="nuevaTransaccionMI" mnemonicParsing="false" text="Realizar transacción" />
                 <MenuItem fx:id="transaccionesMI" mnemonicParsing="false" text="Resumen de transacciones" />
             </items>

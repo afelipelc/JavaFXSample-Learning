@@ -29,6 +29,7 @@ public class Transaccion {
         this.cuenta = cuenta;
         this.referencia = referencia;
         this.descripcion = descripcion;
+        this.nombreRetira = nombreRetira;
         this.infoIdentificacion = infoIdentificacion;
         this.isAbono = isAbono;
         this.sucursal = sucursal;

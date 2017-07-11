@@ -155,14 +155,15 @@
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></ComboBox>
+                   <TextField fx:id="nombreRetiraTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2">
+                       <GridPane.margin>
+                           <Insets right="10.0" />
+                       </GridPane.margin></TextField>
                   <TextField fx:id="infoIdentificacionTxt" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></TextField>
-                  <TextField fx:id="nombreRetiraTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2">
-                     <GridPane.margin>
-                        <Insets right="10.0" />
-                     </GridPane.margin></TextField>
+
                   <Label fx:id="fechaLbl" text="dd/MM/yyyy HH:mm" GridPane.columnIndex="1" />
                </children>
             </GridPane>

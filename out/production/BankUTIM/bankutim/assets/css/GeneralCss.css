@@ -30,6 +30,9 @@
 .label-container{
     -fx-padding: 10 10 10 0;
 }
+.label-bold{
+    -fx-font-weight: 800;
+}
 
 .profileTitle {
     -fx-font-size: 24;

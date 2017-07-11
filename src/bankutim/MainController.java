@@ -1,10 +1,7 @@
 package bankutim;
 
 import bankutim.components.clientes.ClientesController;
-import bankutim.components.cuentas.CuentaController;
-import bankutim.components.cuentas.CuentasController;
-import bankutim.components.cuentas.TransaccionController;
-import bankutim.components.cuentas.TransaccionesController;
+import bankutim.components.cuentas.*;
 import bankutim.components.ejecutivos.EjecutivoController;
 import bankutim.components.ejecutivos.EjecutivosController;
 import bankutim.components.sucursales.SucursalController;
@@ -34,7 +31,7 @@ public class MainController implements Initializable {
 
     //menu items
     @FXML
-    MenuItem sucursalesMI, altaSucursalMI, ejecutivosMI, altaEjecutivoMI, altaCuentaMI, clientesMI, cuentasMI, transaccionesMI, nuevaTransaccionMI; //add all menu items id here....
+    MenuItem sucursalesMI, altaSucursalMI, ejecutivosMI, altaEjecutivoMI, altaCuentaMI, clientesMI, cuentasMI, transaccionesMI, nuevaTransaccionMI, consultarCuentaMI; //add all menu items id here....
 
 
     //end menu items
@@ -185,6 +182,15 @@ public class MainController implements Initializable {
                 } catch (Exception ex) {
                     System.out.println("Error: " + ex.getMessage() + " stack: " + ex.getCause());
                 }
+            }
+        });
+
+        this.consultarCuentaMI.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                EstadoCuentaController estadoCuentaController = new EstadoCuentaController(application.getWithScreen(), application.getHeightScreen() - 32); //send current size screen
+                contenedorPrincipal.getChildren().clear();
+                contenedorPrincipal.getChildren().add(estadoCuentaController);
             }
         });
     }

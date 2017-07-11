@@ -69,11 +69,11 @@
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></ComboBox>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextField fx:id="curpText" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <TextField fx:id="tel1Txt" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></TextField>
@@ -106,7 +106,7 @@
                   <RowConstraints vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <TextField fx:id="tel2Txt" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></TextField>
@@ -130,7 +130,7 @@
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></ComboBox>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextField fx:id="rfcText" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" top="25.0" />
                      </GridPane.margin></TextField>

@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class ClienteController implements Initializable {
 
     @FXML
-    TextField idTxt, nombreTxt, apellidosTxt, domicilioTxt;
+    TextField idTxt, nombreTxt, apellidosTxt, domicilioTxt, curpText, rfcText, tel1Txt, tel2Txt;
     @FXML
     ComboBox estadoCmb;
 
@@ -50,7 +50,7 @@ public class ClienteController implements Initializable {
             @Override
             public void handle(ActionEvent t) {
                 //first set data into object
-                if(!setSucursalData()){
+                if(!setClienteData()){
                     return; //return if not set data
                 }
 
@@ -87,7 +87,7 @@ public class ClienteController implements Initializable {
         });
     }
 
-    private boolean setSucursalData()
+    private boolean setClienteData()
     {
         if (this.nombreTxt.getText().equals("")
                 || this.domicilioTxt.getText().equals("")) {
@@ -109,7 +109,10 @@ public class ClienteController implements Initializable {
         this.cliente.setApellidos(this.apellidosTxt.getText());
         this.cliente.setDomicilio(this.domicilioTxt.getText());
         this.cliente.setEstado((Estado) estadoCmb.getSelectionModel().getSelectedItem());
-
+        this.cliente.setCURP(this.curpText.getText());
+        this.cliente.setRFC(this.rfcText.getText());
+        this.cliente.setTelefono1(this.tel1Txt.getText());
+        this.cliente.setTelefono2(this.tel2Txt.getText());
 
         return  true;
     }
@@ -134,5 +137,9 @@ public class ClienteController implements Initializable {
         this.apellidosTxt.setText(cliente.getApellidos());
         this.domicilioTxt.setText(cliente.getDomicilio());
         this.estadoCmb.getSelectionModel().select(cliente.getEstado());
+        this.curpText.setText(cliente.getCURP());
+        this.rfcText.setText(cliente.getRFC());
+        this.tel1Txt.setText(cliente.getTelefono1());
+        this.tel2Txt.setText(cliente.getTelefono2());
     }
 }
