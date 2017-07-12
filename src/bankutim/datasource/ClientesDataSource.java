@@ -188,4 +188,54 @@ public final class ClientesDataSource {
         return cliente;
     }
 
+    private static boolean updateCliente(Cliente cliente) {
+        Statement statement = null;
+
+        try {
+            //prepare connection to send update request
+            statement = dbConnection.OpenConnection().createStatement(java.sql.ResultSet.TYPE_FORWARD_ONLY, java.sql.ResultSet.CONCUR_UPDATABLE);
+
+            String SQL = "UPDATE Cliente set "
+                    + " Nombre='" + cliente.getNombre() + "', "
+                    + " Apellidos ='" + cliente.getApellidos() + "', "
+                    + " Domicilio = '" + cliente.getDomicilio() + "', "
+                    + " Localidad = '" + cliente.getLocalidad() + "', "
+                    + " Municipio = '" + cliente.getMunicipio() + "', "
+                    + " Estado ='" + cliente.getEstado().getNombre() + "', "
+                    //add CURP, RFC and Tel1
+                    + " CURP = '" + cliente.getCURP() + "', "
+                    + " RFC = '" + cliente.getRFC() + "', "
+                    + " Telefono1 = '" + cliente.getTelefono1() + "', "
+                    + " Telefono2 = '" + cliente.getTelefono2() + "' "
+                    + " where Id = " + cliente.getId() + " limit 1";
+            //System.out.println(SQL);
+            statement.executeUpdate(SQL);
+            return true;
+
+        } catch (SQLException ex) {
+            //System.out.print("Error: " + ex.getMessage());
+            return false;
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException sqlEx) {
+                } // ignore
+            }
+
+            dbConnection.CloseConnection();
+        }
+    }
+
+    //método que se encarga de insertar o actualualizar el registro del cliente
+    public static Cliente saveCliente(Cliente cliente){
+        if(cliente.getId() == 0 ){ //cliente no existe, se debe insertar
+            return addCliente(cliente);
+        }else {
+            updateCliente(cliente);
+            return  cliente;
+        }
+    }
+
 }
