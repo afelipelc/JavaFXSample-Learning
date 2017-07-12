@@ -11,10 +11,15 @@ import java.sql.SQLException;
  * Created by felipe on 17/05/17.
  */
 public class DBConnection {
+
     //MySQL Server credetials
     private static String host ="localhost", db="BankUTIM", user = "root", password = "felipe";
+
+
     //JDBC connection path to MySQL Server
     private static String DbUrl = "jdbc:mysql://"+host+"/"+db;
+
+    //   jdbc:mysql://localhost/BankUTIM
     //conection object that'll be opened and closed in each query
 
     private Connection connectionDB;
