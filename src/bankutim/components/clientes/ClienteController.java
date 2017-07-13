@@ -58,7 +58,7 @@ public class ClienteController implements Initializable {
                 primaryStage = (Stage) aceptarBtn.getScene().getWindow();
 
                 //call datasource to storage object
-                cliente = ClientesDataSource.addCliente(cliente);
+                cliente = ClientesDataSource.saveCliente(cliente);
 
                 //if no error on saving, close window as OK
                 if(cliente != null) {

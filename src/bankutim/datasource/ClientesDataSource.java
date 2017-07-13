@@ -40,6 +40,8 @@ public final class ClientesDataSource {
     }
 
 
+    //   DEBUGGING      DEBUG
+
     public static Cliente saveCliente(Cliente cliente){
 
         //si el id del cliente es 0, entonces insertarlo
@@ -226,9 +228,9 @@ public final class ClientesDataSource {
                     + " Municipio = '" + cliente.getMunicipio() + "', "
                     + " Estado ='" + cliente.getEstado().getNombre() + "', "
                     //add CURP, RFC and Tel1
-                    + " CURP = '" + cliente.getCURP() + "' "
-                    + " RFC = '" + cliente.getRFC() + "' "
-                    + " Telefono1 = '" + cliente.getTelefono1() + "' "
+                    + " CURP = '" + cliente.getCURP() + "', "
+                    + " RFC = '" + cliente.getRFC() + "', "
+                    + " Telefono1 = '" + cliente.getTelefono1() + "', "
                     + " Telefono2 = '" + cliente.getTelefono2() + "' "
                     + " where Id = " + cliente.getId() + " limit 1";
             //System.out.println(SQL);
@@ -236,7 +238,7 @@ public final class ClientesDataSource {
             return true;
 
         } catch (SQLException ex) {
-            //System.out.print("Error: " + ex.getMessage());
+            System.out.print("Error: " + ex.getMessage());
             return false;
         } finally {
 
